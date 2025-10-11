@@ -1,0 +1,80 @@
+CETTE PARTIE POUR LES BIBLIOTEQUE :
+
+#ifndef TRI_BULLE_BIBLIO_H_INCLUDED
+#define TRI_BULLE_BIBLIO_H_INCLUDED
+#include <stdio.h>
+#include <stdlib.h>
+void echanger(int ,int )
+void afficher(int [],int )
+void trie_a_bulle(int [],int )
+void remplir(int [],int n)
+
+#endif // TRI_BULLE_BIBLIO_H_INCLUDED
+
+
+
+
+
+LA PARTIE POUR LES FONCTION :
+
+void echanger(int *a,int *b)
+{
+   int tmp = *a;
+   *a=*b;
+   *b=tmp;
+
+}
+void afficher(int t[],int n)
+{   int i ;
+    for (i=0; i<n ;i++)
+    {
+        printf("%d  ",t[i]);
+
+    }
+}
+
+void trie_a_bulle(int t[],int n)
+{
+    for (int i=0;i<n-1;i++)
+    {
+      for(int j=0;j<n-i-1;j++)
+      {
+          if(t[j]>t[j+1])
+          {
+              echanger(&t[j],&t[j+1]);
+          }
+      }
+
+
+    }
+}
+
+void remplir(int t[],int n)
+{   int i;
+    for (i=0;i<n;i++)
+    {
+        printf("entree la %d eme valeur",i+1);
+        scanf("%d",&t[i]);
+    }
+}
+
+
+LE MAIN DU CODE :
+
+
+int main()
+{   int n;
+    int t[20];
+    printf("entre la taille du tableua : \t");
+    scanf("%d",&n);
+    remplir(t,n);
+    printf("le tableau avant le trie:\n ");
+    afficher(t,n);
+    trie_a_bulle(t,n);
+    printf(" \n ");
+    printf("le tableau apre le trie:\n ");
+    afficher(t,n);
+    return 0;
+}
+
+
